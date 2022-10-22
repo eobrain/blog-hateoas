@@ -14,22 +14,14 @@
 
 <body>
     <header>
-        <h1">Yak Shavings</h1>
+        <h1>Yak Shavings</h1>
     </header>
-    <main>
-        <article>
-            <h2 hx-swap="outerHTML" hx-select="h2" hx-get="/posts/2021-06-01-trust-experience.html"
-                hx-trigger="load"></h2>
-            <button hx-swap="outerHTML" hx-select="section"
-                hx-get="/posts/2021-06-01-trust-experience.html"
-                hx-trigger="click"></button>
+    <main hx-swap="beforeend">
+        <article  hx-trigger="click once" hx-get="/posts/2021-06-01-trust-experience.html">
+            <h2>Trust Experience</h2>
         </article>
-        <article>
-            <h2 hx-swap="outerHTML" hx-select="h2" hx-get="/posts/2021-01-29-mandelbrot-3.html"
-                hx-trigger="load"></h2>
-            <button hx-swap="outerHTML" hx-select="section"
-                hx-get="/posts/2021-01-29-mandelbrot-3.html" hx-trigger="click">
-            </button>
+        <article  hx-trigger="click once" hx-get="/posts/2021-01-29-mandelbrot-3.html">
+            <h2>Hill-Shading the Mandelbrot Set</h2>
         </article>
     </main>
     <footer>
