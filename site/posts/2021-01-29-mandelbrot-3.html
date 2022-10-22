@@ -1,62 +1,54 @@
-<details open>
-  <summary
-    hx-get="/posts/2021-01-29-mandelbrot-3.html"
-    hx-trigger="click once"
-    hx-swap="outerHTML"
-  >
-    <h1>Hill-Shading the Mandelbrot Set</h1>
+<article>
+  <h2>Hill-Shading the Mandelbrot Set</h2>
+  <section>
     January 1, 2021
-  </summary>
-  <figure>
-    <img
-      class="hero"
-      alt="$$\text{width } 0.00391 \text{ centered at } -0.19854+i1.10018$$"
-      src="/img/mandelbrot_-0.19853719075520848_1.1001770019531256_0.00390625_100000.png"
-    />
-    <figcaption>
-      $$\text{width } 0.00391 \text{ centered at } -0.19854+i1.10018$$
-    </figcaption>
-  </figure>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-    type="text/javascript"
-  ></script>
+    <figure>
+      <img class="hero"
+        alt="$$\text{width } 0.00391 \text{ centered at } -0.19854+i1.10018$$"
+        src="/img/mandelbrot_-0.19853719075520848_1.1001770019531256_0.00390625_100000.png" />
+      <figcaption>
+        $$\text{width } 0.00391 \text{ centered at } -0.19854+i1.10018$$
+      </figcaption>
+    </figure>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+      type="text/javascript"></script>
 
-  <p>
-    I've now been using the Mandelbrot set images from my previous postings as
-    my Google Meet video conferencing background for a few weeks, choosing a new
-    one each day. It's been a fun conversation starter, and it's also indicative
-    of what Googlers are like that a large proportion of people in my meetings
-    know exactly what the image is.
-  </p>
+    <p>
+      I've now been using the Mandelbrot set images from my previous postings as
+      my Google Meet video conferencing background for a few weeks, choosing a
+      new
+      one each day. It's been a fun conversation starter, and it's also
+      indicative
+      of what Googlers are like that a large proportion of people in my meetings
+      know exactly what the image is.
+    </p>
 
-  <p>
-    I've now used up my first few batches of images. Time to find some more.
-    Luckily there is an infinite number of them.
-  </p>
+    <p>
+      I've now used up my first few batches of images. Time to find some more.
+      Luckily there is an infinite number of them.
+    </p>
 
-  <p>
-    And what's more I've been doing some experiments with hill-shading to make
-    the images reveal more of the structure, and also playing with the color
-    pallette so that the black of the actual Mandelbrot stands out better.
-  </p>
+    <p>
+      And what's more I've been doing some experiments with hill-shading to make
+      the images reveal more of the structure, and also playing with the color
+      pallette so that the black of the actual Mandelbrot stands out better.
+    </p>
 
-  <p>
-    Shout out to <a href="https://twitter.com/AnnaThieme">@AnnaThieme</a> for
-    her
-    <a href="https://blog.datawrapper.de/shaded-relief-with-gdal-python/"
-      >details</a
-    >
-    on coding up shaded relief for maps. With the help of her artticle I added
-    the following to my C++ coloring
-    <a href="https://github.com/eobrain/almondbread/blob/main/main.cc">code</a>:
-  </p>
+    <p>
+      Shout out to <a href="https://twitter.com/AnnaThieme">@AnnaThieme</a> for
+      her
+      <a
+        href="https://blog.datawrapper.de/shaded-relief-with-gdal-python/">details</a>
+      on coding up shaded relief for maps. With the help of her artticle I added
+      the following to my C++ coloring
+      <a
+        href="https://github.com/eobrain/almondbread/blob/main/main.cc">code</a>:
+    </p>
 
-  <div class="language-c++ highlighter-rouge">
-    <div class="highlight">
-      <pre
-        class="highlight"
-      ><code><span class="kt">double</span> <span class="nf">hillshade</span><span class="p">(</span><span class="kt">int</span> <span class="n">ix</span><span class="p">,</span> <span class="kt">int</span> <span class="n">iy</span><span class="p">)</span> <span class="p">{</span>
+    <div class="language-c++ highlighter-rouge">
+      <div class="highlight">
+        <pre class="highlight"><code><span class="kt">double</span> <span class="nf">hillshade</span><span class="p">(</span><span class="kt">int</span> <span class="n">ix</span><span class="p">,</span> <span class="kt">int</span> <span class="n">iy</span><span class="p">)</span> <span class="p">{</span>
 <span class="c1">// Values in the eight neighboring cells</span>
 <span class="k">const</span> <span class="kt">double</span> <span class="n">a</span> <span class="o">=</span> <span class="n">iterations</span><span class="p">(</span><span class="n">ix</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">iy</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
 <span class="k">const</span> <span class="kt">double</span> <span class="n">b</span> <span class="o">=</span> <span class="n">iterations</span><span class="p">(</span><span class="n">ix</span><span class="p">,</span> <span class="n">iy</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
@@ -78,313 +70,253 @@
 <span class="k">return</span> <span class="n">shade</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="n">shade</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre>
+      </div>
     </div>
-  </div>
 
-  <h2 id="here-are-some-new-interesting-areas-of-the-mandelbrot-set-ive-found">
-    Here are some new interesting areas of the Mandelbrot Set I've found
-  </h2>
+    <h3
+      id="here-are-some-new-interesting-areas-of-the-mandelbrot-set-ive-found">
+      Here are some new interesting areas of the Mandelbrot Set I've found
+    </h3>
 
-  <h3 id="-07436438870371587--i01318259042053119-width-510-13">
-    -0.7436438870371587 + i0.1318259042053119 width 5×10<sup>-13</sup>
-  </h3>
+    <h4 id="-07436438870371587--i01318259042053119-width-510-13">
+      -0.7436438870371587 + i0.1318259042053119 width 5×10<sup>-13</sup>
+    </h4>
 
-  <!-- http://localhost:3333/#-0.743643887037158704752191506114774_0.131825904205311970493132056385139_5e-13_100000 -->
+    <!-- http://localhost:3333/#-0.743643887037158704752191506114774_0.131825904205311970493132056385139_5e-13_100000 -->
 
-  <p>
-    <a
-      href="/img/video_-0.743643887037158704752191506114774_0.131825904205311970493132056385139_5e-13_100000.gif"
-      ><img
-        src="/img/video_-0.743643887037158704752191506114774_0.131825904205311970493132056385139_5e-13_100000.gif"
-        alt="video"
-    /></a>
-    <a
-      href="/img/mandelbrot_-0.743643887037158704752191506114774_0.131825904205311970493132056385139_5e-13_100000.png"
-      ><img
-        src="/img/mandelbrot_-0.743643887037158704752191506114774_0.131825904205311970493132056385139_5e-13_100000.png"
-        alt="image"
-    /></a>
-  </p>
+    <p>
+      <a
+        href="/img/video_-0.743643887037158704752191506114774_0.131825904205311970493132056385139_5e-13_100000.gif"><img
+          src="/img/video_-0.743643887037158704752191506114774_0.131825904205311970493132056385139_5e-13_100000.gif"
+          alt="video" /></a>
+      <a
+        href="/img/mandelbrot_-0.743643887037158704752191506114774_0.131825904205311970493132056385139_5e-13_100000.png"><img
+          src="/img/mandelbrot_-0.743643887037158704752191506114774_0.131825904205311970493132056385139_5e-13_100000.png"
+          alt="image" /></a>
+    </p>
 
-  <h3 id="-018271806444477--i066140756855431-width-14510-11">
-    -0.18271806444477 + i0.66140756855431, width 1.45×10<sup>-11</sup>
-  </h3>
-  <!-- http://localhost:3333/#-0.18271806444477842_0.6614075685543184_1.4551915228366852e-11_100000 -->
+    <h4 id="-018271806444477--i066140756855431-width-14510-11">
+      -0.18271806444477 + i0.66140756855431, width 1.45×10<sup>-11</sup>
+    </h4>
+    <!-- http://localhost:3333/#-0.18271806444477842_0.6614075685543184_1.4551915228366852e-11_100000 -->
 
-  <p>
-    <a
-      href="/img/video_-0.18271806444477842_0.6614075685543184_1.4551915228366852e-11_100000.gif"
-      ><img
-        src="/img/video_-0.18271806444477842_0.6614075685543184_1.4551915228366852e-11_100000.gif"
-        alt="video"
-    /></a>
-    <a
-      href="/img/mandelbrot_-0.18271806444477842_0.6614075685543184_1.4551915228366852e-11_100000.png"
-      ><img
-        src="/img/mandelbrot_-0.18271806444477842_0.6614075685543184_1.4551915228366852e-11_100000.png"
-        alt="image"
-    /></a>
-  </p>
+    <p>
+      <a
+        href="/img/video_-0.18271806444477842_0.6614075685543184_1.4551915228366852e-11_100000.gif"><img
+          src="/img/video_-0.18271806444477842_0.6614075685543184_1.4551915228366852e-11_100000.gif"
+          alt="video" /></a>
+      <a
+        href="/img/mandelbrot_-0.18271806444477842_0.6614075685543184_1.4551915228366852e-11_100000.png"><img
+          src="/img/mandelbrot_-0.18271806444477842_0.6614075685543184_1.4551915228366852e-11_100000.png"
+          alt="image" /></a>
+    </p>
 
-  <h3 id="037001085813--i067143543269-width-610-8">
-    0.37001085813 + i0.67143543269, width 6×10<sup>-8</sup>
-  </h3>
+    <h4 id="037001085813--i067143543269-width-610-8">
+      0.37001085813 + i0.67143543269, width 6×10<sup>-8</sup>
+    </h4>
 
-  <p>
-    <a href="/img/video_0.37001085813778134_0.6714354326948524_6e-8_100000.gif"
-      ><img
-        src="/img/video_0.37001085813778134_0.6714354326948524_6e-8_100000.gif"
-        alt="video"
-    /></a>
-    <a
-      href="/img/mandelbrot_0.37001085813778134_0.6714354326948524_6e-8_100000.png"
-      ><img
-        src="/img/mandelbrot_0.37001085813778134_0.6714354326948524_6e-8_100000.png"
-        alt="image"
-    /></a>
-  </p>
+    <p>
+      <a
+        href="/img/video_0.37001085813778134_0.6714354326948524_6e-8_100000.gif"><img
+          src="/img/video_0.37001085813778134_0.6714354326948524_6e-8_100000.gif"
+          alt="video" /></a>
+      <a
+        href="/img/mandelbrot_0.37001085813778134_0.6714354326948524_6e-8_100000.png"><img
+          src="/img/mandelbrot_0.37001085813778134_0.6714354326948524_6e-8_100000.png"
+          alt="image" /></a>
+    </p>
 
-  <h3 id="-07345612674879727--i03601896136089664-width-45513-8">
-    -0.7345612674879727 + i0.3601896136089664, width 4.55×13<sup>-8</sup>
-  </h3>
+    <h4 id="-07345612674879727--i03601896136089664-width-45513-8">
+      -0.7345612674879727 + i0.3601896136089664, width 4.55×13<sup>-8</sup>
+    </h4>
 
-  <p>
-    <a
-      href="/img/video_-0.7345612674879727_0.3601896136089664_4.547473508864641e-13_100000.gif"
-      ><img
-        src="/img/video_-0.7345612674879727_0.3601896136089664_4.547473508864641e-13_100000.gif"
-        alt="video"
-    /></a>
-    <a
-      href="/img/mandelbrot_-0.7345612674879727_0.3601896136089664_4.547473508864641e-13_100000.png"
-      ><img
-        src="/img/mandelbrot_-0.7345612674879727_0.3601896136089664_4.547473508864641e-13_100000.png"
-        alt="image"
-    /></a>
-  </p>
+    <p>
+      <a
+        href="/img/video_-0.7345612674879727_0.3601896136089664_4.547473508864641e-13_100000.gif"><img
+          src="/img/video_-0.7345612674879727_0.3601896136089664_4.547473508864641e-13_100000.gif"
+          alt="video" /></a>
+      <a
+        href="/img/mandelbrot_-0.7345612674879727_0.3601896136089664_4.547473508864641e-13_100000.png"><img
+          src="/img/mandelbrot_-0.7345612674879727_0.3601896136089664_4.547473508864641e-13_100000.png"
+          alt="image" /></a>
+    </p>
 
-  <h2 id="01488658918--i06424077239-width--513-7">
-    0.1488658918 + i0.6424077239, width 5×13<sup>-7</sup>
-  </h2>
+    <h3 id="01488658918--i06424077239-width--513-7">
+      0.1488658918 + i0.6424077239, width 5×13<sup>-7</sup>
+    </h3>
 
-  <p>
-    <a
-      href="/img/mandelbrot_0.14886589182917292_0.6424077238777159_5e-7_100000.png"
-      ><img
-        src="/img/mandelbrot_0.14886589182917292_0.6424077238777159_5e-7_100000.png"
-        alt="image"
-    /></a>
-  </p>
+    <p>
+      <a
+        href="/img/mandelbrot_0.14886589182917292_0.6424077238777159_5e-7_100000.png"><img
+          src="/img/mandelbrot_0.14886589182917292_0.6424077238777159_5e-7_100000.png"
+          alt="image" /></a>
+    </p>
 
-  <h2 id="-099920853376--i030236435348-width-74513-9">
-    -0.99920853376 + i0.30236435348, width 7.45×13<sup>-9</sup>
-  </h2>
+    <h3 id="-099920853376--i030236435348-width-74513-9">
+      -0.99920853376 + i0.30236435348, width 7.45×13<sup>-9</sup>
+    </h3>
 
-  <p>
-    <a
-      href="/img/mandelbrot_-0.9992085337561246_0.3023643534824564_7.450580596923828e-9_100000.png"
-      ><img
-        src="/img/mandelbrot_-0.9992085337561246_0.3023643534824564_7.450580596923828e-9_100000.png"
-        alt="image"
-    /></a>
-  </p>
+    <p>
+      <a
+        href="/img/mandelbrot_-0.9992085337561246_0.3023643534824564_7.450580596923828e-9_100000.png"><img
+          src="/img/mandelbrot_-0.9992085337561246_0.3023643534824564_7.450580596923828e-9_100000.png"
+          alt="image" /></a>
+    </p>
 
-  <h2 id="-07489856--i0055768-width-0000244">
-    -0.7489856 + i0.055768, width 0.000244
-  </h2>
+    <h3 id="-07489856--i0055768-width-0000244">
+      -0.7489856 + i0.055768, width 0.000244
+    </h3>
 
-  <p>
-    <a
-      href="/img/mandelbrot_-0.748985544840495_0.05576807657877601_0.000244140625_100000.png"
-      ><img
-        src="/img/mandelbrot_-0.748985544840495_0.05576807657877601_0.000244140625_100000.png"
-        alt="image"
-    /></a>
-  </p>
+    <p>
+      <a
+        href="/img/mandelbrot_-0.748985544840495_0.05576807657877601_0.000244140625_100000.png"><img
+          src="/img/mandelbrot_-0.748985544840495_0.05576807657877601_0.000244140625_100000.png"
+          alt="image" /></a>
+    </p>
 
-  <h2
-    id="and-here-are-re-renderings-of-images-from-previous-posts-in-this-new-style"
-  >
-    And here are re-renderings of images from previous posts in this new style
-  </h2>
+    <h3
+      id="and-here-are-re-renderings-of-images-from-previous-posts-in-this-new-style">
+      And here are re-renderings of images from previous posts in this new style
+    </h3>
 
-  <p>Click the images to see at full resolution.</p>
+    <p>Click the images to see at full resolution.</p>
 
-  <p>
-    <a href="/img/mandelbrot_0_0_8_100000.png"
-      ><img
-        src="/img/mandelbrot_0_0_8_100000.png"
-        alt="$$\text{width } 8 \text{ centered at } 0+i0$$"
-    /></a>
-  </p>
+    <p>
+      <a href="/img/mandelbrot_0_0_8_100000.png"><img
+          src="/img/mandelbrot_0_0_8_100000.png"
+          alt="$$\text{width } 8 \text{ centered at } 0+i0$$" /></a>
+    </p>
 
-  <p>
-    <a
-      href="/img/mandelbrot_-0.6584480285644533_-0.4668521881103515_0.000244140625_100000.png"
-      ><img
-        src="/img/mandelbrot_-0.6584480285644533_-0.4668521881103515_0.000244140625_100000.png"
-        alt="$$\text{width } 0.000244 \text{ centered at } -0.658448+i0.466852$$"
-    /></a>
-  </p>
+    <p>
+      <a
+        href="/img/mandelbrot_-0.6584480285644533_-0.4668521881103515_0.000244140625_100000.png"><img
+          src="/img/mandelbrot_-0.6584480285644533_-0.4668521881103515_0.000244140625_100000.png"
+          alt="$$\text{width } 0.000244 \text{ centered at } -0.658448+i0.466852$$" /></a>
+    </p>
 
-  <p>
-    <a
-      href="/img/mandelbrot_-0.7151815414428709_-0.23002815246582042_0.0001220703125_100000.png"
-      ><img
-        src="/img/mandelbrot_-0.7151815414428709_-0.23002815246582042_0.0001220703125_100000.png"
-        alt="$$\text{width } 0.000122 \text{ centered at } -0.715182+i0.2300282$$"
-    /></a>
-  </p>
+    <p>
+      <a
+        href="/img/mandelbrot_-0.7151815414428709_-0.23002815246582042_0.0001220703125_100000.png"><img
+          src="/img/mandelbrot_-0.7151815414428709_-0.23002815246582042_0.0001220703125_100000.png"
+          alt="$$\text{width } 0.000122 \text{ centered at } -0.715182+i0.2300282$$" /></a>
+    </p>
 
-  <p>
-    <a
-      href="/img/mandelbrot_0.2843902587890624_-0.013590494791666673_0.0009765625_1000000.png"
-      ><img
-        src="/img/mandelbrot_0.2843902587890624_-0.013590494791666673_0.0009765625_1000000.png"
-        alt="$$\text{width } 0.000977 \text{ centered at } 0.284390+i0.013590$$"
-    /></a>
-  </p>
+    <p>
+      <a
+        href="/img/mandelbrot_0.2843902587890624_-0.013590494791666673_0.0009765625_1000000.png"><img
+          src="/img/mandelbrot_0.2843902587890624_-0.013590494791666673_0.0009765625_1000000.png"
+          alt="$$\text{width } 0.000977 \text{ centered at } 0.284390+i0.013590$$" /></a>
+    </p>
 
-  <p>
-    <a
-      href="/img/mandelbrot_0.28443044026692704_-0.012731933593750003_0.0009765625_1000000.png"
-      ><img
-        src="/img/mandelbrot_0.28443044026692704_-0.012731933593750003_0.0009765625_1000000.png"
-        alt="$$\text{width } 0.000977 \text{ centered at } 0.284430+i0.012732$$"
-    /></a>
-  </p>
+    <p>
+      <a
+        href="/img/mandelbrot_0.28443044026692704_-0.012731933593750003_0.0009765625_1000000.png"><img
+          src="/img/mandelbrot_0.28443044026692704_-0.012731933593750003_0.0009765625_1000000.png"
+          alt="$$\text{width } 0.000977 \text{ centered at } 0.284430+i0.012732$$" /></a>
+    </p>
 
-  <p>
-    <a
-      href="/img/mandelbrot_-0.13997533733903145_-0.9920762390921783_4.656612873077393e-10_1000000.png"
-      ><img
-        src="/img/mandelbrot_-0.13997533733903145_-0.9920762390921783_4.656612873077393e-10_1000000.png"
-        alt="$$\text{width } 4.657 \times 10^{-10} \text{ centered at } -0.13997533734+i0.992076239092$$"
-    /></a>
-  </p>
+    <p>
+      <a
+        href="/img/mandelbrot_-0.13997533733903145_-0.9920762390921783_4.656612873077393e-10_1000000.png"><img
+          src="/img/mandelbrot_-0.13997533733903145_-0.9920762390921783_4.656612873077393e-10_1000000.png"
+          alt="$$\text{width } 4.657 \times 10^{-10} \text{ centered at } -0.13997533734+i0.992076239092$$" /></a>
+    </p>
 
-  <p>
-    <a
-      href="/img/mandelbrot_-0.7961858113606771_-0.18322652180989607_0.0009765625_100000.png"
-      ><img
-        src="/img/mandelbrot_-0.7961858113606771_-0.18322652180989607_0.0009765625_100000.png"
-        alt="$$\text{width } 0.000977 \text{ centered at } -0.796186+i0.183227$$"
-    /></a>
-  </p>
+    <p>
+      <a
+        href="/img/mandelbrot_-0.7961858113606771_-0.18322652180989607_0.0009765625_100000.png"><img
+          src="/img/mandelbrot_-0.7961858113606771_-0.18322652180989607_0.0009765625_100000.png"
+          alt="$$\text{width } 0.000977 \text{ centered at } -0.796186+i0.183227$$" /></a>
+    </p>
 
-  <p>
-    <a href="/img/mandelbrot_0.250006_0_1.1920928955078125e-7_1000000.png"
-      ><img
-        src="/img/mandelbrot_0.250006_0_1.1920928955078125e-7_1000000.png"
-        alt="$$\text{width } 1.19 \times 10^{-7} \text{ centered at } 0.250006+i0$$"
-    /></a>
-  </p>
+    <p>
+      <a href="/img/mandelbrot_0.250006_0_1.1920928955078125e-7_1000000.png"><img
+          src="/img/mandelbrot_0.250006_0_1.1920928955078125e-7_1000000.png"
+          alt="$$\text{width } 1.19 \times 10^{-7} \text{ centered at } 0.250006+i0$$" /></a>
+    </p>
 
-  <p>
-    <a
-      href="/img/mandelbrot_-1.9999117501972556_0_7.450580596923828e-9_1000000.png"
-      ><img
-        src="/img/mandelbrot_-1.9999117501972556_0_7.450580596923828e-9_1000000.png"
-        alt="$$\text{width } 7.45 \times 10^{-9} \text{ centered at } -1.9999117502+i0$$"
-    /></a>
-  </p>
+    <p>
+      <a
+        href="/img/mandelbrot_-1.9999117501972556_0_7.450580596923828e-9_1000000.png"><img
+          src="/img/mandelbrot_-1.9999117501972556_0_7.450580596923828e-9_1000000.png"
+          alt="$$\text{width } 7.45 \times 10^{-9} \text{ centered at } -1.9999117502+i0$$" /></a>
+    </p>
 
-  <p>
-    <a
-      href="/img/mandelbrot_-0.19853719075520848_1.1001770019531256_0.00390625_100000.png"
-      ><img
-        src="/img/mandelbrot_-0.19853719075520848_1.1001770019531256_0.00390625_100000.png"
-        alt="$$\text{width } 0.00391 \text{ centered at } -0.19854+i1.10018$$"
-    /></a>
-  </p>
+    <p>
+      <a
+        href="/img/mandelbrot_-0.19853719075520848_1.1001770019531256_0.00390625_100000.png"><img
+          src="/img/mandelbrot_-0.19853719075520848_1.1001770019531256_0.00390625_100000.png"
+          alt="$$\text{width } 0.00391 \text{ centered at } -0.19854+i1.10018$$" /></a>
+    </p>
 
-  <p>
-    <a
-      href="/img/mandelbrot_-0.7452629166666667_-0.11304177083333333_0.0001_1000000.png"
-      ><img
-        src="/img/mandelbrot_-0.7452629166666667_-0.11304177083333333_0.0001_1000000.png"
-        alt="$$\text{width } 0.0001 \text{ centered at } -0.745263-i0.113042$$"
-    /></a>
-  </p>
+    <p>
+      <a
+        href="/img/mandelbrot_-0.7452629166666667_-0.11304177083333333_0.0001_1000000.png"><img
+          src="/img/mandelbrot_-0.7452629166666667_-0.11304177083333333_0.0001_1000000.png"
+          alt="$$\text{width } 0.0001 \text{ centered at } -0.745263-i0.113042$$" /></a>
+    </p>
 
-  <p>
-    <a
-      href="/img/mandelbrot_-0.7499888023860679_0.006997251233593751_2.5e-10_1000000.png"
-      ><img
-        src="/img/mandelbrot_-0.7499888023860679_0.006997251233593751_2.5e-10_1000000.png"
-        alt="$$\text{width } 2.5 \times 10^{-10} \text{ centered at } -0.749988802386+i0.006997251233$$"
-    /></a>
-  </p>
+    <p>
+      <a
+        href="/img/mandelbrot_-0.7499888023860679_0.006997251233593751_2.5e-10_1000000.png"><img
+          src="/img/mandelbrot_-0.7499888023860679_0.006997251233593751_2.5e-10_1000000.png"
+          alt="$$\text{width } 2.5 \times 10^{-10} \text{ centered at } -0.749988802386+i0.006997251233$$" /></a>
+    </p>
 
-  <p>
-    <a
-      href="/img/mandelbrot_-1.6744096742808003_0.0000471655656125_1e-9_1000000.png"
-      ><img
-        src="/img/mandelbrot_-1.6744096742808003_0.0000471655656125_1e-9_1000000.png"
-        alt="$$\text{width } 10^{-9} \text{ centered at } -1.67440967428+i0.00004716557$$"
-    /></a>
-  </p>
+    <p>
+      <a
+        href="/img/mandelbrot_-1.6744096742808003_0.0000471655656125_1e-9_1000000.png"><img
+          src="/img/mandelbrot_-1.6744096742808003_0.0000471655656125_1e-9_1000000.png"
+          alt="$$\text{width } 10^{-9} \text{ centered at } -1.67440967428+i0.00004716557$$" /></a>
+    </p>
 
-  <p>
-    <a
-      href="/img/mandelbrot_-1.6744096746527182_0.000047165698790702304_4.8828125e-13_10000000.png"
-      ><img
-        src="/img/mandelbrot_-1.6744096746527182_0.000047165698790702304_4.8828125e-13_10000000.png"
-        alt="$$\text{width } 4.88 \times 10^{-13} \text{ centered at } -1.674409674652718+i0.000047165698791$$"
-    /></a>
-  </p>
+    <p>
+      <a
+        href="/img/mandelbrot_-1.6744096746527182_0.000047165698790702304_4.8828125e-13_10000000.png"><img
+          src="/img/mandelbrot_-1.6744096746527182_0.000047165698790702304_4.8828125e-13_10000000.png"
+          alt="$$\text{width } 4.88 \times 10^{-13} \text{ centered at } -1.674409674652718+i0.000047165698791$$" /></a>
+    </p>
 
-  <p>
-    <a
-      href="/img/mandelbrot_-1.6744096746527197_0.0000471656987933374_2e-13_1000000.png"
-      ><img
-        src="/img/mandelbrot_-1.6744096746527197_0.0000471656987933374_2e-13_1000000.png"
-        alt="$$\text{width } 2 \times 10^{-13} \text{ centered at } -1.674409674652720+i0.000047165698793$$"
-    /></a>
-  </p>
+    <p>
+      <a
+        href="/img/mandelbrot_-1.6744096746527197_0.0000471656987933374_2e-13_1000000.png"><img
+          src="/img/mandelbrot_-1.6744096746527197_0.0000471656987933374_2e-13_1000000.png"
+          alt="$$\text{width } 2 \times 10^{-13} \text{ centered at } -1.674409674652720+i0.000047165698793$$" /></a>
+    </p>
 
-  <p>
-    <a
-      href="/img/mandelbrot_-1.2842251638571422_0.4273256043593089_0.000003814697265625_1000000.png"
-      ><img
-        src="/img/mandelbrot_-1.2842251638571422_0.4273256043593089_0.000003814697265625_1000000.png"
-        alt="$$\text{width } 0.00000381 \text{ centered at } -1.28422516+i0.42732560$$"
-    /></a>
-  </p>
+    <p>
+      <a
+        href="/img/mandelbrot_-1.2842251638571422_0.4273256043593089_0.000003814697265625_1000000.png"><img
+          src="/img/mandelbrot_-1.2842251638571422_0.4273256043593089_0.000003814697265625_1000000.png"
+          alt="$$\text{width } 0.00000381 \text{ centered at } -1.28422516+i0.42732560$$" /></a>
+    </p>
 
-  <p>
-    <a
-      href="/img/mandelbrot_0.44642544407603696_-0.41214188107417926_2.3283064365386963e-10_1000000.png"
-      ><img
-        src="/img/mandelbrot_0.44642544407603696_-0.41214188107417926_2.3283064365386963e-10_1000000.png"
-        alt="0.4464254440760-i0.4121418810742 2.328×10&lt;sup&gt;-10&lt;/sup&gt; wide"
-    /></a>
-  </p>
+    <p>
+      <a
+        href="/img/mandelbrot_0.44642544407603696_-0.41214188107417926_2.3283064365386963e-10_1000000.png"><img
+          src="/img/mandelbrot_0.44642544407603696_-0.41214188107417926_2.3283064365386963e-10_1000000.png"
+          alt="0.4464254440760-i0.4121418810742 2.328×10&lt;sup&gt;-10&lt;/sup&gt; wide" /></a>
+    </p>
 
-  <p>
-    <a
-      href="/img/mandelbrot_-1.292628079931202_-0.35266737725997915_7.275957614183426e-12_1000000.png"
-      ><img
-        src="/img/mandelbrot_-1.292628079931202_-0.35266737725997915_7.275957614183426e-12_1000000.png"
-        alt="-1.292628079931202-i0.352667377259980 7.28×10&lt;sup&gt;-12&lt;/sup&gt; wide"
-    /></a>
-  </p>
+    <p>
+      <a
+        href="/img/mandelbrot_-1.292628079931202_-0.35266737725997915_7.275957614183426e-12_1000000.png"><img
+          src="/img/mandelbrot_-1.292628079931202_-0.35266737725997915_7.275957614183426e-12_1000000.png"
+          alt="-1.292628079931202-i0.352667377259980 7.28×10&lt;sup&gt;-12&lt;/sup&gt; wide" /></a>
+    </p>
 
-  <p>
-    <a
-      href="/img/mandelbrot_0.4177429339294358_0.21028284578128817_2.2737367544323206e-13_1000000.png"
-      ><img
-        src="/img/mandelbrot_0.4177429339294358_0.21028284578128817_2.2737367544323206e-13_1000000.png"
-        alt="0.4177429339294358+i0.2102828457812882 2.27×10&lt;sup&gt;-13&lt;/sup&gt; wide"
-    /></a>
-  </p>
+    <p>
+      <a
+        href="/img/mandelbrot_0.4177429339294358_0.21028284578128817_2.2737367544323206e-13_1000000.png"><img
+          src="/img/mandelbrot_0.4177429339294358_0.21028284578128817_2.2737367544323206e-13_1000000.png"
+          alt="0.4177429339294358+i0.2102828457812882 2.27×10&lt;sup&gt;-13&lt;/sup&gt; wide" /></a>
+    </p>
 
-  <p>
-    <a
-      href="/img/mandelbrot_-0.8624892205832114_0.21478927144381935_2.2737367544323206e-13_1000000.png"
-      ><img
-        src="/img/mandelbrot_-0.8624892205832114_0.21478927144381935_2.2737367544323206e-13_1000000.png"
-        alt="-0.8624892205832114+i0.21478927144381935 2.27×10&lt;sup&gt;-13&lt;/sup&gt; wide"
-    /></a>
-  </p>
-</details>
+    <p>
+      <a
+        href="/img/mandelbrot_-0.8624892205832114_0.21478927144381935_2.2737367544323206e-13_1000000.png"><img
+          src="/img/mandelbrot_-0.8624892205832114_0.21478927144381935_2.2737367544323206e-13_1000000.png"
+          alt="-0.8624892205832114+i0.21478927144381935 2.27×10&lt;sup&gt;-13&lt;/sup&gt; wide" /></a>
+    </p>
+  </section>
+</article>

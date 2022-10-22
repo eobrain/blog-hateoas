@@ -2,27 +2,38 @@
 <html lang="en">
 
 <head>
-  <title>Yak Shavings | Programming Explorations</title>
-  <meta name="description"
-    content="Eamonn O'Brien-Strain's Blog">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://unpkg.com/htmx.org@1.8.2" integrity="sha384-+8ISc/waZcRdXCLxVgbsLzay31nCdyZXQxnsUy++HJzJliTzxKWr0m1cIEMyUzQu" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
+    <title>Yak Shavings | Programming Explorations</title>
+    <meta name="description" content="Eamonn O'Brien-Strain's Blog">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/htmx.org@1.8.2"
+        integrity="sha384-+8ISc/waZcRdXCLxVgbsLzay31nCdyZXQxnsUy++HJzJliTzxKWr0m1cIEMyUzQu"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
 </head>
 
 <body>
-  <header>
-    <h1">Yak Shavings</h1>
-  </header>
-  <main
-    hx-trigger="load"
-    hx-select="summary">
-    <article hx-get="/posts/2021-06-01-trust-experience.html"></article>
-    <article hx-get="/posts/2021-01-29-mandelbrot-3.html"></article>
-  </main>
-  <footer>
-  </footer>
+    <header>
+        <h1">Yak Shavings</h1>
+    </header>
+    <main>
+        <article>
+            <h2 hx-swap="outerHTML" hx-select="h2" hx-get="/posts/2021-06-01-trust-experience.html"
+                hx-trigger="load"></h2>
+            <button hx-swap="outerHTML" hx-select="section"
+                hx-get="/posts/2021-06-01-trust-experience.html"
+                hx-trigger="click"></button>
+        </article>
+        <article>
+            <h2 hx-swap="outerHTML" hx-select="h2" hx-get="/posts/2021-01-29-mandelbrot-3.html"
+                hx-trigger="load"></h2>
+            <button hx-swap="outerHTML" hx-select="section"
+                hx-get="/posts/2021-01-29-mandelbrot-3.html" hx-trigger="click">
+            </button>
+        </article>
+    </main>
+    <footer>
+    </footer>
 </body>
 
 </html>
