@@ -14,14 +14,14 @@
 
 <body>
     <header>
-        <h1>Yak Shavings</h1>
+        <h1><a href="/">Yak Shavings</a></h1>
     </header>
     <main hx-swap="beforeend" hx-push-url="true">
-        <article hx-trigger="click once"
+        <article hx-select="main" hx-trigger="click once"
             hx-get="/posts/2021-06-01-trust-experience.html">
             <h2>Trust Experience</h2>
         </article>
-        <article hx-trigger="click once"
+        <article hx-select="main" hx-trigger="click once"
             hx-get="/posts/2021-01-29-mandelbrot-3.html">
             <h2>Hill-Shading the Mandelbrot Set</h2>
         </article>
