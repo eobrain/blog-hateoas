@@ -1,0 +1,33 @@
+[POSTS]
+deps=[
+    "site/posts/2021-06-01-trust-experience.html",
+    "site/posts/2021-01-29-mandelbrot-3.html"
+]
+
+["site/posts/%.html"]
+deps=["tmp/%.json", "templates/post.html"]
+exec="mustache tmp/%.json templates/post.html > $@"
+
+["tmp/%.html"]
+deps=["tmp/%.md"]
+exec="showdown makehtml --input tmp/%.md > $@"
+
+["tmp/%.json"]
+deps=["tmp/%.yaml"]
+exec="js-yaml tmp/%.yaml > $@"
+
+["tmp/%.yaml"]
+deps=["_posts/%.md"]
+exec="""
+awk --file=extract-yaml.awk $< > $@
+"""
+
+["tmp/%.md"]
+deps=["_posts/%.md"]
+exec="""
+awk --file=extract-just-markdown.md $< > $@
+"""
+
+[clean]
+exec="rm -f tmp/*.yaml tmp/*.json site/posts/*.html"
+
