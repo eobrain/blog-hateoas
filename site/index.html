@@ -16,11 +16,13 @@
     <header>
         <h1>Yak Shavings</h1>
     </header>
-    <main hx-swap="beforeend">
-        <article  hx-trigger="click once" hx-get="/posts/2021-06-01-trust-experience.html">
+    <main hx-swap="beforeend" hx-push-url="true">
+        <article hx-trigger="click once"
+            hx-get="/posts/2021-06-01-trust-experience.html">
             <h2>Trust Experience</h2>
         </article>
-        <article  hx-trigger="click once" hx-get="/posts/2021-01-29-mandelbrot-3.html">
+        <article hx-trigger="click once"
+            hx-get="/posts/2021-01-29-mandelbrot-3.html">
             <h2>Hill-Shading the Mandelbrot Set</h2>
         </article>
     </main>
