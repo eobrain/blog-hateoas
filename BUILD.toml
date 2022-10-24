@@ -5,10 +5,10 @@ deps=[
 ]
 
 ["site/posts/%.html"]
-deps=["tmp/%.json", "templates/post.html"]
+deps=["tmp/%.json", "templates/post.html", "site/content/%.html"]
 exec="mustache tmp/%.json templates/post.html > $@"
 
-["tmp/%.html"]
+["site/content/%.html"]
 deps=["tmp/%.md"]
 exec="showdown makehtml --input tmp/%.md > $@"
 
@@ -19,13 +19,13 @@ exec="js-yaml tmp/%.yaml > $@"
 ["tmp/%.yaml"]
 deps=["_posts/%.md"]
 exec="""
-awk --file=extract-yaml.awk $< > $@
+awk -f extract-yaml.awk $< > $@
 """
 
 ["tmp/%.md"]
 deps=["_posts/%.md"]
 exec="""
-awk --file=extract-just-markdown.md $< > $@
+awk -f extract-just-markdown.awk $< > $@
 """
 
 [clean]

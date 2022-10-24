@@ -1,7 +1,6 @@
 ---
-layout: post
 title:  Trust Experience
-categories: Product
+name: 2021-06-01-trust-experience
 ---
 
 I've long been passionate about issues of user privacy, so I jumped at the

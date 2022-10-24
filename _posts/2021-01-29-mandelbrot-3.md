@@ -1,7 +1,6 @@
 ---
-layout: post
 title:  Hill-Shading the Mandelbrot Set
-categories: Programming
+name: 2021-01-29-mandelbrot-3
 image: /img/mandelbrot_-0.19853719075520848_1.1001770019531256_0.00390625_100000.png
 image-text: $$\text{width } 0.00391 \text{ centered at } -0.19854+i1.10018$$
 ---
